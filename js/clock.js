@@ -25,6 +25,7 @@ var Clock = new Class({
 		var self = this;
 
 		document.getElements('.commandButton').addEvent('click', function (e) {
+			e.stopPropagation();
 			clearInterval(this.isRunning);
 
 			if (!this.hasClass('active')) {
