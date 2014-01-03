@@ -1,11 +1,15 @@
+/* global Class */
+
 var Digital = new Class({
 
 	initialize: function () {},
 
-	commands: function () { return "&nbsp;" },
+	commands: function () {
+		return "<a>Digital View</a>&nbsp;/&nbsp;<a>Graph View</a>&nbsp;/&nbsp;<a>Analog View</a>";
+	},
 
-	dispatch: function(command) {},
-	
+	dispatch: function (command) {},
+
 	display: function () {
 		var thisDate = new Date(),
 			thisString =
