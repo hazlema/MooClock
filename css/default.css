@@ -1,12 +1,12 @@
 .sidebar div.commandButton {
-	font-family: chewy;
+	font-family: arial;
 	margin-top: 5px;
 	margin-left: 10px;
 	margin-right: -30px;
 	background-color: #101f27;
 	color: #fff;
 	padding: 15px;
-	font-size: 20px;
+	font-size: 15px;
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 	cursor: pointer;
@@ -14,6 +14,7 @@
 	border-bottom: 1px solid black;
 	border-right: none;
 	border-left: 1px solid white;
+	font-weight:bolder;
 }
 .sidebar div.commandHover {
 	background-color: #333;
@@ -98,30 +99,35 @@
 	height: 280px;
 	text-align: center;
 }
-.graph-cointainer table > tr {
+.graph-cointainer table {
 	background-color: #333;
 }
 .graph-purple,
 .graph-red,
-.graph-green {
+.graph-green,
+.graph-yellow {
 	text-align: left;
 	color: #FFF;
 	font-family: arial;
 	font-weight:bolder;
-	padding: 22px;
+	padding: 15px;
 	border-top-right-radius: 15px;
 	border-bottom-right-radius: 15px;
+	font-weight:bolder;
 	text-shadow: 2px 2px #000;
 	border-top: 1px solid white;
 	border-bottom: 1px solid black;
 	border-right 1px solid black;
 	border-left: none;
+	font-size: 15px;
 }
+
 
 .graph-purple {
 	background: -webkit-linear-gradient(45deg, #dded00 1%, #277700 100%);
 	background: linear-gradient(45deg, #dded00 1%, #277700 100%);
 }
+
 .graph-red {
 	background: -webkit-linear-gradient(45deg, #277700 0%, #00b7ef 100%);
 	background: linear-gradient(45deg, #277700 0%, #00b7ef 100%);
@@ -130,4 +136,9 @@
 .graph-green {
 	background: -webkit-linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
 	background: linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
+}
+
+.graph-yellow {
+	background: -webkit-linear-gradient(45deg, #70007F 0%, #bc7b00 100%);
+	background: linear-gradient(45deg, #70007F 0%, #bc7b00 100%);
 }

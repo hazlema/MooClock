@@ -40,10 +40,9 @@ var Digital = new Class({
 			Second = thisDate.format('%S').trim(),
 			HW = ((100 / 12) * Hour) + '%',
 			MW = ((100 / 60) * Minute) + '%',
-			SW = ((100 / 60) * Second) + '%';
-
-		console.log(HW, MW, SW);
-
+			SW = ((100 / 60) * Second) + '%',
+			meridiem = thisDate.get("hours") > 12 ? "PM" : "AM";
+				
 		var doc =
 			'<table class="graph-cointainer">' +
 			'<tr>' +
@@ -57,6 +56,10 @@ var Digital = new Class({
 			'</tr><tr>' +
 			'	<td class="graph-second">' +
 			'		<div class="graph-green" style="width:' + SW + ' ">Second&nbsp;(' + String(thisDate.format('%S')).trim() + ')</span>' +
+			'	</td>' +
+			'</tr><tr>' +
+			'	<td class="graph-second">' +
+			'		<div class="graph-yellow" style="width:' + HW + ' ">' + meridiem + '&nbsp;</span>' +
 			'	</td>' +
 			'</tr></table>';
 
