@@ -1,37 +1,35 @@
 .sidebar div.commandButton {
 	font-family: chewy;
-	margin-bottom: 5px;
+	margin-top: 5px;
 	margin-left: 10px;
 	margin-right: -30px;
-	background-color: #240d0d;
+	background-color: #101f27;
 	color: #fff;
 	padding: 15px;
 	font-size: 20px;
-	border-top: 1px solid #111;
-	border-left: 1px solid #111;
-	border-right: 0px;
-	border-bottom: 1px solid #111;
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;
 	cursor: pointer;
 }
 .sidebar div.commandHover {
-	background-color: #551148;
+	background-color: #333;
 }
 .sidebar div.active {
-	background-color: #511;
+	background-color: #113d55;
 }
 .content {
 	font-family: arial;
 	margin: 0px;
 	padding: 0px;
 	color: white;
-	background-color: #511;
+	background-color: #113d55;
 	min-height: 290px;
 	height: 290px;
-	font-size: 175px;
+	font-size: 200px;
+	vertical-align: middle;
 	text-align: center;
 	line-height: 290px;
+	display: block;
 }
 .logo,
 .logo a {
@@ -43,7 +41,7 @@
 	color: white;
 	font-family: verdana;
 	font-size: 15px;
-	background-color: #111;
+	background-color: #25283b;
 	padding: 10px;
 }
 .nav-bar-top-right {
@@ -76,7 +74,7 @@
 	//margin-left: 5px;
 }
 .accent {
-	color: #c45c5c;
+	color: #0c273b;
 }
 .ampm {
 	margin-left:15px;font-size: 70px;
@@ -88,4 +86,47 @@
 	border-top-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
+}
+.graph-cointainer {
+	line-height: normal;
+	font-size: 25px;
+	width: 100%;
+	height: 280px;
+	text-align: center;
+}
+.graph-cointainer table > tr {
+	background-color: #333;
+}
+.graph-purple,
+.graph-red,
+.graph-green {
+	text-align: left;
+	color: rgb(0, 0, 0);
+	font-family: arial;
+	font-weight:bolder;
+	padding: 15px;
+	border: 1px solid #222;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	
+}
+
+.graph-purple {
+	background: -webkit-linear-gradient(45deg, #dded00 1%, #277700 100%);
+	background: linear-gradient(45deg, #dded00 1%, #277700 100%);
+	border: 1px solid white;
+	border-left: none;
+}
+.graph-red {
+	background: -webkit-linear-gradient(45deg, #277700 0%, #00b7ef 100%);
+	background: linear-gradient(45deg, #277700 0%, #00b7ef 100%);
+	border: 1px solid white;
+	border-left: none;
+}
+
+.graph-green {
+	background: -webkit-linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
+	background: linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
+	border: 1px solid white;
+	border-left: none;
 }

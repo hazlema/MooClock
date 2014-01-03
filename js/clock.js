@@ -77,14 +77,14 @@ var Clock = new Class({
 		// Digital clock (js/digital.js)
 		//
 		case "Digital":
-			document.id('content').set('html', this.Digital.display());
+			document.id('content').set('html', this.Digital.display(this.Digital));
 
 			if (!self.loaded) {
 				document.id('commands').set('html', this.Digital.commands());
 				console.log(document.id("commands").getElements("a"));
 
 				document.id("commands").getElements("a").addEvent('click', function (e, ele) {
-					self.Digital.dispatch(this.innerHTML);
+					self.Digital.dispatch(this.innerHTML, self.Digital);
 				});
 				this.loaded = true;
 			}
