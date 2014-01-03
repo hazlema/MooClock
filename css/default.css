@@ -7,9 +7,13 @@
 	color: #fff;
 	padding: 15px;
 	font-size: 20px;
-	border-top-left-radius: 30px;
-	border-bottom-left-radius: 30px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
 	cursor: pointer;
+	border-top: 1px solid white;
+	border-bottom: 1px solid black;
+	border-right: none;
+	border-left: 1px solid white;
 }
 .sidebar div.commandHover {
 	background-color: #333;
@@ -74,7 +78,7 @@
 	//margin-left: 5px;
 }
 .accent {
-	color: #0c273b;
+	color: #2e90d9;
 }
 .ampm {
 	margin-left:15px;font-size: 70px;
@@ -101,32 +105,29 @@
 .graph-red,
 .graph-green {
 	text-align: left;
-	color: rgb(0, 0, 0);
+	color: #FFF;
 	font-family: arial;
 	font-weight:bolder;
-	padding: 15px;
-	border: 1px solid #222;
+	padding: 22px;
 	border-top-right-radius: 15px;
 	border-bottom-right-radius: 15px;
-	
+	text-shadow: 2px 2px #000;
+	border-top: 1px solid white;
+	border-bottom: 1px solid black;
+	border-right 1px solid black;
+	border-left: none;
 }
 
 .graph-purple {
 	background: -webkit-linear-gradient(45deg, #dded00 1%, #277700 100%);
 	background: linear-gradient(45deg, #dded00 1%, #277700 100%);
-	border: 1px solid white;
-	border-left: none;
 }
 .graph-red {
 	background: -webkit-linear-gradient(45deg, #277700 0%, #00b7ef 100%);
 	background: linear-gradient(45deg, #277700 0%, #00b7ef 100%);
-	border: 1px solid white;
-	border-left: none;
 }
 
 .graph-green {
 	background: -webkit-linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
 	background: linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
-	border: 1px solid white;
-	border-left: none;
 }
