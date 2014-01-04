@@ -9,16 +9,20 @@ var Clock = new Class({
 		this.initHover();
 		this.initClick();
 
-		// Load Views
+		// Load Modules
 		//
-		this.Digital = new Digital();
-		this.Timer = new Timer();
+		this.modules = {
+			'Digital': new Digital(),
+			'Timer':   new Timer()
+		};
 
-		// Start
+		// Set the active module
+		// Set the loaded flag 
+		// Start the timer
 		//
-		this.selection = 'Digital';
-		this.loaded = false;
-		this.isRunning = this.updateDisplay.periodical(1000, this);
+		this.modules.active = this.modules.Digital;
+		this.loaded         = false;
+		this.isRunning      = this.updateDisplay.periodical(1000, this);
 	},
 
 	// Setup the click events
@@ -35,11 +39,11 @@ var Clock = new Class({
 				this.addClass('active');
 
 				// Tell updateDisplay() it needs to load and
-				// link up the commands
+				// link up the commands, set the active module
 				//
 				self.loaded = false;
-				self.selection = this.getAttribute('display-panel');
-
+				self.modules.active = self.modules[this.getAttribute('display-panel')];
+				
 				// Stop Updating, let the animation finish
 				//
 				document.id('content').fade('out').addEvent('complete', function () {
@@ -72,40 +76,17 @@ var Clock = new Class({
 	updateDisplay: function () {
 		var self = this;
 
-		switch (this.selection) {
+		document.id('content').set('html', this.modules.active.display(this.modules.active));
 
-		// Digital clock (js/digital.js)
-		//
-		case "Digital":
-			document.id('content').set('html', this.Digital.display(this.Digital));
+		if (!self.loaded) {
+			document.id('commands').set('html', this.modules.active.commands());
 
-			if (!self.loaded) {
-				document.id('commands').set('html', this.Digital.commands());
-				console.log(document.id("commands").getElements("a"));
-
-				document.id("commands").getElements("a").addEvent('click', function (e, ele) {
-					self.Digital.dispatch(this.innerHTML, self.Digital);
-				});
-				this.loaded = true;
-			}
-			break;
-
-		// Timer (js/timer.js)
-		//
-		case "Timer":
-			document.id('content').set('html', this.Timer.display(this.Timer));
-
-			if (!self.loaded) {
-				document.id('commands').set('html', this.Timer.commands());
-				console.log(document.id("commands").getElements("a"));
-
-				document.id("commands").getElements("a").addEvent('click', function (e, ele) {
-					self.Timer.dispatch(this.innerHTML, self.Timer);
-				});
-				this.loaded = true;
-			}
-			break;
+			document.id("commands").getElements("a").addEvent('click', function (e, ele) {
+				self.modules.active.dispatch(this.innerHTML, self.modules.active);
+			});
+			this.loaded = true;
 		}
+
 		document.id('content').fade('in');
 	}
 });
