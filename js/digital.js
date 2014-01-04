@@ -47,15 +47,15 @@ var Digital = new Class({
 			'<table class="graph-cointainer">' +
 			'<tr>' +
 			'   <td class="graph-hour">' +
-			'		<div class="graph-purple" style="width:' + HW + '">Hour&nbsp;(' + String(thisDate.format('%l')).trim() + ')</span>' +
+			'		<div class="graph-purple" style="width:' + HW + '">Hours&nbsp;(' + String(thisDate.format('%l')).trim() + ')</span>' +
 			'	</td>' +
 			'</tr><tr>' +
 			'	<td class="graph-minute">' +
-			'		<div class="graph-red" style="width:' + MW + ' ">Minute&nbsp;(' + String(thisDate.format('%M')).trim() + ')</span>' +
+			'		<div class="graph-red" style="width:' + MW + ' ">Minutes&nbsp;(' + String(thisDate.format('%M')).trim() + ')</span>' +
 			'	</td>' +
 			'</tr><tr>' +
 			'	<td class="graph-second">' +
-			'		<div class="graph-green" style="width:' + SW + ' ">Second&nbsp;(' + String(thisDate.format('%S')).trim() + ')</span>' +
+			'		<div class="graph-green" style="width:' + SW + ' ">Seconds&nbsp;(' + String(thisDate.format('%S')).trim() + ')</span>' +
 			'	</td>' +
 			'</tr><tr>' +
 			'	<td class="graph-second">' +
