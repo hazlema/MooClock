@@ -1,64 +1,65 @@
-.sidebar div.commandButton {
-	font-family: arial;
-	margin-top: 5px;
-	margin-left: 10px;
-	margin-right: -30px;
-	background-color: #101f27;
+body {
+	font-family: belgrano;
+	font-weight: normal;
 	color: #fff;
-	padding: 15px;
 	font-size: 15px;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
-	cursor: pointer;
-	border-top: 1px solid white;
-	border-bottom: 1px solid black;
+	text-shadow: 3px 3px #000;
+}
+.sidebar div.commandButton {
+	background-color: #4f0062;
+	padding: 15px;
+	margin-top: 5px;
+	margin-right: -30px;
+	border-top: 1px solid #000c12;
+	border-bottom: 1px solid #000c12;
 	border-right: none;
-	border-left: 1px solid white;
-	font-weight:bolder;
+	border-left: 1px solid #000c12;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+	cursor: pointer;
 }
 .sidebar div.commandHover {
-	background-color: #333;
+	background-color: #73008d;
 }
 .sidebar div.active {
-	background-color: #113d55;
+	background-color: #000c12;
+	font-style: italic;
 }
 .content {
-	font-family: arial;
-	margin: 0px;
-	padding: 0px;
 	color: white;
-	background-color: #113d55;
-	min-height: 290px;
+	background-color: #000c12;
+	font-size: 150px;
 	height: 290px;
-	font-size: 200px;
-	vertical-align: middle;
 	text-align: center;
 	line-height: 290px;
+	min-height: 290px;
+	padding: 0px;
+	margin: 0px;
 	display: block;
-}
-.logo,
-.logo a {
-	padding-left: 15px;
 }
 .nav-bar,
 .nav-bar-left,
 .nav-bar-right {
+	background-color: #2d123e;
 	color: white;
-	font-family: verdana;
+	font-family: belgrano;
 	font-size: 15px;
-	background-color: #25283b;
 	padding: 10px;
 }
 .nav-bar-top-right {
+	padding-right: 15px;
 	border-top-right-radius: 15px;
 }
 .nav-bar-top-left {
+	padding-left: 15px;
 	border-top-left-radius: 15px;
 }
 .nav-bar-bottom-right {
+	padding-right: 15px;
 	border-bottom-right-radius: 15px;
 }
 .nav-bar-bottom-left {
+	padding-left: 15px;
 	border-bottom-left-radius: 15px;
 }
 .nav-bar-left {
@@ -71,22 +72,21 @@
 .nav-bar a {
 	color: white;
 	text-decoration: none;
-	//margin-left: 5px;
 	cursor: pointer;
 }
 .nav-bar a:hover {
 	color: yellow;
-	//margin-left: 5px;
 }
 .accent {
 	color: #2e90d9;
 }
 .ampm {
-	margin-left:15px;font-size: 70px;
 	color: #838383;
+	font-size: 70px;
+	margin-left:15px;
 }
 .bg-white {
-	background-color: #676767;
+	background-color: #222;
 	border-top-right-radius: 15px;
 	border-top-left-radius: 15px;
 	border-bottom-right-radius: 15px;
@@ -99,45 +99,35 @@
 	height: 280px;
 	text-align: center;
 }
-.graph-cointainer table {
-	background-color: #333;
-}
 .graph-purple,
 .graph-red,
 .graph-green,
 .graph-yellow {
-	text-align: left;
 	color: #FFF;
-	font-family: arial;
-	font-weight:bolder;
-	padding: 10px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	font-weight:bolder;
-	text-shadow: 2px 2px #000;
+	font-family: verdana;
+	font-size: 20px;
+	text-align: left;
+	text-shadow: 1px 1px #000;;
+	padding: 15px;
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
 	border-top: 1px solid white;
 	border-bottom: 1px solid black;
 	border-right 1px solid black;
 	border-left: none;
-	font-size: 35px;
 }
-
-
 .graph-purple {
-	background: -webkit-linear-gradient(45deg, #dded00 1%, #277700 100%);
-	background: linear-gradient(45deg, #dded00 1%, #277700 100%);
+	background: -webkit-linear-gradient(45deg, rgba(221, 237, 0, 0.75) 1%, rgb(39, 119, 0) 100%);
+	background: linear-gradient(45deg, rgba(221, 237, 0, 0.75) 1%, rgb(39, 119, 0) 100%);
 }
-
 .graph-red {
 	background: -webkit-linear-gradient(45deg, #277700 0%, #00b7ef 100%);
 	background: linear-gradient(45deg, #277700 0%, #00b7ef 100%);
 }
-
 .graph-green {
 	background: -webkit-linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
 	background: linear-gradient(45deg, #00b7ef 0%, #70007F 100%);
 }
-
 .graph-yellow {
 	background: -webkit-linear-gradient(45deg, #70007F 0%, #bc7b00 100%);
 	background: linear-gradient(45deg, #70007F 0%, #bc7b00 100%);

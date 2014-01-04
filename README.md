@@ -1,6 +1,8 @@
 # MooClock aka. JSClock #
 
-
+![](screenshots/digital.jpg)
+![](screenshots/Graph.jpg)
+![](screenshots/Timer.jpg)
 An attempt at making a community project for the MooTools forge.  Exclusively written in JabaScript with the MooTools framework.
 
 
