@@ -1,4 +1,4 @@
-/* global Class, Digital, Timer, document, clearInterval, console, window  */
+/* global Class, Digital, Timer, document, clearInterval, console, window, Fx  */
 
 var Clock = new Class({
 
@@ -16,13 +16,13 @@ var Clock = new Class({
 			'Timer': new Timer()
 		};
 
-		// Set the active module
 		// Set the loaded flag 
 		// Start the timer
 		//
-		this.modules.active = this.modules.Digital;
-		this.loaded = false;
-		this.isRunning = this.updateDisplay.periodical(1000, this);
+		this.renderDisplay = true;
+		this.activateModule();
+
+		this.isRunning = this.tick.periodical(1000, this);
 	},
 
 	// Setup the click events
@@ -32,23 +32,11 @@ var Clock = new Class({
 
 		document.getElements('.commandButton').addEvent('click', function (e) {
 			e.stopPropagation();
-			clearInterval(this.isRunning);
 
 			if (!this.hasClass('active')) {
 				document.getElements('div.commandButton').removeClass('active');
 				this.addClass('active');
-
-				// Tell updateDisplay() it needs to load and
-				// link up the commands, set the active module
-				//
-				self.loaded = false;
-				self.modules.active = self.modules[this.getAttribute('display-panel')];
-
-				// Stop Updating, let the animation finish
-				//
-				document.id('content').fade('out').addEvent('complete', function () {
-					self.isRunning = this.updateDisplay.periodical(1000, self);
-				});
+				self.activateModule(this.getAttribute('display-panel'));
 			}
 		});
 	},
@@ -70,22 +58,7 @@ var Clock = new Class({
 		});
 	},
 
-	// This gets called every second 
-	// and decides what to update
-	//
-	updateDisplay: function () {
-		var self = this;
-
-		// Load the modules components and link
-		//
-		if (!this.loaded) {
-			document.id('commands').set('html', this.modules.active.commands());
-
-			document.id("commands").getElements("a").addEvent('click', function (e, ele) {
-				self.modules.active.dispatch(this.innerHTML, self.modules.active);
-			});
-			this.loaded = true;
-		}
+	tick: function () {
 
 		// Call all the tick functions in all the
 		// modules (except the duplicate one 'active')
@@ -96,10 +69,54 @@ var Clock = new Class({
 			}
 		});
 
-		// Update the display
+		// If we are updating the screen or waiting
+		// for an animation to finish
 		//
-		document.id('content').set('html', this.modules.active.display(this.modules.active));
-		document.id('content').fade('in');
+		//if (this.renderDisplay) {
+			document.id('content').set('html', this.modules.active.display(this.modules.active));
+		//}
+	},
+
+	activateModule: function (moduleName) {
+		var self = this,
+			fxfad = new Fx.Morph(document.id('content'), {
+				transition: 'quart:out',
+				duration: 500,
+				link: 'chain',
+				onStart: function () {
+					self.renderDisplay = false;
+				},
+				onComplete: function () {
+					if (typeof moduleName == 'undefined') {
+						self.modules.active = Object.values(self.modules)[0];
+					} else {
+						// Search for module
+						//
+						Object.each(self.modules, function (value, key) {
+							if (key == moduleName) {
+								self.modules.active = value;
+							}
+						});
+					}
+
+					// Update and wire modules commands
+					//
+					document.id('commands').set('html', self.modules.active.commands());
+					document.id("commands").getElements("a").addEvent('click', function (e, ele) {
+						self.modules.active.dispatch(this.innerHTML, self.modules.active);
+					});
+
+					self.modules.active.display(self.modules.active);
+					self.renderDisplay = true;
+					document.id('content').set('html', self.modules.active.display(self.modules.active));
+					document.id('content').fade('in');
+					console.log('Rendering: on');
+				}
+			});
+
+		fxfad.start({
+			'opacity': 0
+		});
 	}
 });
 

@@ -34,10 +34,6 @@ This controls the variables and the rendering functions for the Timer Tab.
 
 ## TODO (Brief list and growing) ##
 
-- Optimize and restructure the code
-
-- Optimize the CSS rules
-
 - Add the analog view
 
 - Add a project tracking module
@@ -46,13 +42,7 @@ This controls the variables and the rendering functions for the Timer Tab.
 
 - Add alarms
 
-- Fix the animations so they always work
-
 - Add animation to changing views
-
-- Improve responsive design
- 
-- Improve module system
 
 - Add in [NodeJS](http://nodejs.org/) to allow for file system functions
  
