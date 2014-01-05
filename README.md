@@ -5,6 +5,10 @@
 ![](screenshots/Timer.jpg)
 An attempt at making a community project for the MooTools forge.  Exclusively written in JabaScript with the MooTools framework.
 
+## New Tick function ##
+
+Now on every tick of the clock (1 second) all the *[module].tick()* functions will be called.  This is to keep custom timers running
+in the background while the user can be viewing a different tab.
 
 ## Wiki ##
 

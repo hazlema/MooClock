@@ -13,7 +13,7 @@ var Clock = new Class({
 		//
 		this.modules = {
 			'Digital': new Digital(),
-			'Timer':   new Timer()
+			'Timer': new Timer()
 		};
 
 		// Set the active module
@@ -21,8 +21,8 @@ var Clock = new Class({
 		// Start the timer
 		//
 		this.modules.active = this.modules.Digital;
-		this.loaded         = false;
-		this.isRunning      = this.updateDisplay.periodical(1000, this);
+		this.loaded = false;
+		this.isRunning = this.updateDisplay.periodical(1000, this);
 	},
 
 	// Setup the click events
@@ -43,7 +43,7 @@ var Clock = new Class({
 				//
 				self.loaded = false;
 				self.modules.active = self.modules[this.getAttribute('display-panel')];
-				
+
 				// Stop Updating, let the animation finish
 				//
 				document.id('content').fade('out').addEvent('complete', function () {
@@ -76,9 +76,9 @@ var Clock = new Class({
 	updateDisplay: function () {
 		var self = this;
 
-		document.id('content').set('html', this.modules.active.display(this.modules.active));
-
-		if (!self.loaded) {
+		// Load the modules components and link
+		//
+		if (!this.loaded) {
 			document.id('commands').set('html', this.modules.active.commands());
 
 			document.id("commands").getElements("a").addEvent('click', function (e, ele) {
@@ -87,6 +87,18 @@ var Clock = new Class({
 			this.loaded = true;
 		}
 
+		// Call all the tick functions in all the
+		// modules (except the duplicate one 'active')
+		//
+		Object.each(this.modules, function (value, key) {
+			if (key != 'active' && value.tick) {
+				value.tick(value);
+			}
+		});
+
+		// Update the display
+		//
+		document.id('content').set('html', this.modules.active.display(this.modules.active));
 		document.id('content').fade('in');
 	}
 });

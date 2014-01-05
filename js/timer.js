@@ -37,11 +37,13 @@ var Timer = new Class({
 		}
 	},
 
-	display: function (bound) {
+	tick: function(bound) {
 		if (!bound.status.isPaused) {
 			bound.status.seconds += 1;
 		}
-
+	},
+		
+	display: function (bound) {
 		var hr = parseInt(bound.status.seconds / 21600),
 			mn = parseInt((bound.status.seconds - (hr * 21600)) / 60),
 			sc = parseInt((bound.status.seconds - ((hr * 21600) + (mn * 60))));
