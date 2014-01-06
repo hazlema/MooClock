@@ -44,24 +44,24 @@ var Digital = new Class({
 			meridiem = thisDate.get("hours") > 12 ? "PM" : "AM";
 				
 		var doc =
-			'<table class="graph-cointainer">' +
-			'<tr>' +
-			'   <td class="graph-hour">' +
-			'		<div class="graph-purple" style="width:' + HW + '">Hours&nbsp;(' + String(thisDate.format('%l')).trim() + ')</span>' +
-			'	</td>' +
-			'</tr><tr>' +
-			'	<td class="graph-minute">' +
-			'		<div class="graph-red" style="width:' + MW + ' ">Minutes&nbsp;(' + String(thisDate.format('%M')).trim() + ')</span>' +
-			'	</td>' +
-			'</tr><tr>' +
-			'	<td class="graph-second">' +
-			'		<div class="graph-green" style="width:' + SW + ' ">Seconds&nbsp;(' + String(thisDate.format('%S')).trim() + ')</span>' +
-			'	</td>' +
-			'</tr><tr>' +
-			'	<td class="graph-second">' +
-			'		<div class="graph-yellow" style="width:' + HW + ' ">' + meridiem + '&nbsp;</span>' +
-			'	</td>' +
-			'</tr></table>';
+			'<div class="graph-cointainer">' +
+			'   <div class="graph-hour">' +
+			'		' + String(thisDate.format('%l')).trim() + ' Hours<br>' +
+			'		<div class="graph-purple" style="width:' + HW + '"></span>' +
+			'	</div>' +
+			'	<div class="graph-minute">' +
+			'		' + String(thisDate.format('%M')).trim() + ' Minutes<br>' +
+			'		<div class="graph-red" style="width:' + MW + ' "></span>' +
+			'	</div>' +
+			'	<div class="graph-second">' +
+			'		' + String(thisDate.format('%S')).trim() + ' Seconds<br>' +
+			'		<div class="graph-green" style="width:' + SW + ' "></span>' +
+			'	</div>' +
+			'	<div class="graph-second">' + 
+			'		' + meridiem + '<br>' +
+			'		<div class="graph-yellow" style="width:' + HW + ' "></span>' +
+			'	</div>' +
+			'</div>';
 
 		return doc;
 	},
